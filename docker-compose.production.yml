@@ -14,17 +14,17 @@ services:
     image: tekut/kittygram_backend
     env_file: .env
     volumes:
-      - static_volume_kittygram:/backend_static
+      - static:/backend_static/
   frontend:
     env_file: .env
     image: tekut/kittygram_frontend
     command: cp -r /app/build/. /frontend_static/
     volumes:
-      - static_volume:/frontend_static
+      - static:/frontend_static/
   gateway:
     image: tekut/kittygram_gateway
     env_file: .env
     volumes:
-      - static_volume_kittygram:/staticfiles/
+      - static:/staticfiles/
     ports:
       - 9000:80
