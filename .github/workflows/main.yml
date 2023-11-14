@@ -137,17 +137,6 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
-    - name: Create .env file
-      run: |
-        touch .env
-        echo "POSTGRES_DB=kittygram" >> .env
-        echo "POSTGRES_USER=kittygram_user" >> .env
-        echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
-        echo "POSTGRES_PASSWORD=kittygram_password" >> .env
-        echo "DB_NAME=kittygram" >> .env
-        echo "DB_HOST=db" >> .env
-        echo "DB_PORT=5432" >> .env
-      shell: bash
     - name: Copy docker-compose.yml via ssh
       uses: appleboy/scp-action@master
       with:
